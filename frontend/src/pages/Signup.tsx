@@ -1,6 +1,5 @@
 import { Quotes } from "../components/Quotes"
 import { Auth } from "../components/Auth"
-import Appbar from "../components/Appbar"
 
 export const Singup = ()=>{
     return<>

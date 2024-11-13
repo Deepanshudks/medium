@@ -1,6 +1,5 @@
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Avatar } from "./BlogCard"
-import { useBlog } from "../hooks"
 
 const Appbar = () => {
   const navigate = useNavigate()

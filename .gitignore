@@ -1,0 +1,21 @@
+node_modules
+# Keep environment variables out of version control
+.env
+
+
+model User{
+  id  Int @id @default(autoincrement())
+  name  String?
+  username String @unique
+  password String
+  blogs Blog[]
+}
+
+model Blog{
+  id Int @id @default(autoincrement())
+  title String
+  content String
+  published Boolean @default(false)
+  author User @relation(fields: [authorId],references: [id])
+  authorId Int
+} 

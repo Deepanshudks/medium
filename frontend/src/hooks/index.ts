@@ -6,6 +6,7 @@ export interface BlogProp {
     "content" : string,
     "title" : string,
     "id" : number,
+    "published_At" : Date,
     "author" : {
         "username" : string
     }

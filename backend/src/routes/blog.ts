@@ -92,7 +92,6 @@ blogRouter.put("/",async (c)=>{
     }
 })
 
-
 blogRouter.get("/bulk",async (c)=>{
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL
@@ -101,6 +100,7 @@ blogRouter.get("/bulk",async (c)=>{
             content: true,
             title: true,
             id: true,
+            published_At:true,
             author:{
                 select:{
                     username:true
@@ -124,6 +124,7 @@ blogRouter.get("/:id",async (c)=>{
                 content: true,
                 title: true,
                 id: true,
+                published_At: true,
                 author:{
                     select:{
                         username:true

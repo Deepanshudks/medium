@@ -15,7 +15,7 @@ const Blogs = () => {
     <Appbar />
     <div className="flex justify-center w-screen flex-col items-center ">
     {blogs.map(blog=>{
-      return  <BlogCard key={blog.id} id={blog.id} content={blog.content} authorName={blog.author.username} title={blog.title} publishedDate="Nov 12,2024" />
+      return  <BlogCard key={blog.id} id={blog.id} content={blog.content} authorName={blog.author.username} title={blog.title} publishedDate={blog.published_At} />
     })}
     
     </div>

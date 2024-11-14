@@ -4,13 +4,24 @@ interface BlogCardProps{
     authorName : string,
     title : string,
     content : string,
-    publishedDate :string,
+    publishedDate : Date,
     id: number
 }
 const BlogCard = ({
     authorName, title,content,publishedDate,id
 }:BlogCardProps) => {
   const navigate = useNavigate()
+  const isValidDate = !isNaN(new Date(publishedDate).getTime());
+
+    // Format the date if it's valid, otherwise display "Unknown date"
+    const formattedDate = isValidDate
+        ? new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: '2-digit',
+          }).format(new Date(publishedDate))
+        : "Unknown date";
+
 
   return (
     <div onClick={()=>{
@@ -20,7 +31,7 @@ const BlogCard = ({
     <Avatar size="small" name={authorName}/>
     <div className="font-sm text-sm  text-zinc-700 mx-2">{authorName}</div>
     <Circle/>
-    <div className="font-sm text-sm pl-2 text-slate-400">{publishedDate}</div>
+    <div className="font-sm text-sm pl-2 text-slate-400">{formattedDate}</div>
     
     </div>
     <div className="font-extrabold text-2xl cursor-pointer">{title}</div>

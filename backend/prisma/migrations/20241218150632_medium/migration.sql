@@ -14,6 +14,7 @@ CREATE TABLE "Blog" (
     "title" TEXT NOT NULL,
     "content" TEXT NOT NULL,
     "published" BOOLEAN NOT NULL DEFAULT false,
+    "published_At" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "authorId" INTEGER NOT NULL,
 
     CONSTRAINT "Blog_pkey" PRIMARY KEY ("id")

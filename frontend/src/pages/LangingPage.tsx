@@ -15,7 +15,7 @@ const LangingPage = () => {
                 A place to read, write, and deepen your understanding
                 </div>
                 <Link to={"/signup"}>
-                <div className="bg-green-700 hover:bg-green-800 text-xl rounded-full text-white font-medium w-fit px-5 m-12 py-2">
+                <div className="bg-green-600 hover:bg-green-800 text-xl rounded-full text-white font-medium w-fit px-5 m-12 py-2">
                     Start reading
                 </div>
                 </Link>

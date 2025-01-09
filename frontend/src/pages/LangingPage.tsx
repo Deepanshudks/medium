@@ -5,9 +5,9 @@ const LangingPage = () => {
   return (
     <div className="bg-orange-50">
         <HomeNav/>
-        <div className="grid md:grid-cols-2 gap-2 grid-flow-row-dense	">
+        <div className="grid pt-8 md:grid-cols-2 gap-2 grid-flow-row-dense	">
             <div className="flex flex-col  justify-center h-screen">
-                <div className="text-8xl text-slate-800 font-serif mb-2 m-10">
+                <div className="text-5xl lg:text-8xl md:text-7xl text-slate-800 font-serif mb-2 m-10">
                 Human
                 stories & ideas
                 </div>

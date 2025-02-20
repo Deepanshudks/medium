@@ -8,7 +8,7 @@ const HomeNav = () => {
         </Link>
         <div className="flex items-center">
             <Link to={"signin"} >
-            <div className="text-slate-800 m-2 cursor-pointer text-base hover:text-slate-600">Sign in</div>
+            <div className="text-slate-800 hover:text-black font-bold m-2 cursor-pointer text-base hover:text-slate-600">Sign in</div>
             </Link>
             <Link to={"/signup"}>
             <div className="bg-zinc-800 m-2 cursor-pointer hover:bg-black rounded-full text-white font-bold p-2">Get started</div>

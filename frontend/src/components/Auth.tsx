@@ -15,6 +15,29 @@ export const Auth = ({type}:{type: "signup" | "signin"})=>{
     const [isClicked,setIsClicked] = useState(false)
     const navigate = useNavigate()
 
+    async function GuestLogin(){
+        setsignupInputs({
+            username : "guest",
+            name : "Guest",
+            password : "000000"
+        })
+        try{
+            setIsClicked(true)
+            const response =  await axios.post(`${BACKEND_URL}/api/v1/user/signin`,{
+                username : "guest",
+                name : "Guest",
+                password : "000000"
+            })
+            const jwt = response.data.token;
+            localStorage.setItem("token",jwt)
+            setIsClicked(false)
+            navigate("/blogs")
+        }catch(e){
+            alert("Error in singup")
+            setIsClicked(false)
+        }   
+    }
+
     async function sendRequest(){
         try{
             setIsClicked(true)
@@ -38,25 +61,26 @@ export const Auth = ({type}:{type: "signup" | "signin"})=>{
     
     <div className="flex flex-col">
         
-        <LabelledInput type="text" labelText="Username" placeholder="Enter your username" onChange={(e)=>{
+        <LabelledInput value={signupInputs.username} type="text" labelText="Username" placeholder="Enter your username" onChange={(e)=>{
             setsignupInputs(c=>({
             ...c,
             username : e.target.value
             }))
             user = e.target.value
         }} />
-       {type === "signup"? <LabelledInput labelText="Name" placeholder="Enter your name" onChange={(e)=>{
+       {type === "signup"? <LabelledInput value={signupInputs.name}  labelText="Name" placeholder="Enter your name" onChange={(e)=>{
             setsignupInputs(c=>({
             ...c,
             name : e.target.value
             }))
         }} />:null}
-        <LabelledInput type="password" labelText="Password" placeholder="" onChange={(e)=>{
+        <LabelledInput value={signupInputs.password}  type="password" labelText="Password" placeholder="Enter your password" onChange={(e)=>{
             setsignupInputs(c=>({
             ...c,
             password : e.target.value
             }))
         }} />
+            <p onClick={GuestLogin} className="text-blue-600 px-5 text-sm hover:text-blue-400 cursor-pointer text-right">Guest Login</p>
          {
         !isClicked?( <button onClick={sendRequest
         } className="bg-black text-white p-2 border rounded-lg my-3 hover:bg-zinc-700">{type === "signup"? "Sign up" : "Sign in"}</button>):(
@@ -65,7 +89,6 @@ export const Auth = ({type}:{type: "signup" | "signin"})=>{
         )
         }
     </div>
-
     </div>
     </div>
 }
@@ -73,12 +96,13 @@ export const Auth = ({type}:{type: "signup" | "signin"})=>{
 interface LabelledInputTypes{
     labelText: string,
     placeholder: string,
+    value?: string,
     type? : string,
     onChange : (e:ChangeEvent<HTMLInputElement>) => void
 }
-function LabelledInput({labelText,placeholder,type,onChange}: LabelledInputTypes){
+function LabelledInput({value,labelText,placeholder,type,onChange}: LabelledInputTypes){
     return<>
      <label className="font-bold m-1" >{labelText}</label>
-    <input onChange={onChange} className="border-2 m-1 px-2 py-1 rounded border-zinc border-bold" placeholder={placeholder} type={type || "text"} />
+    <input value={value} onChange={onChange} className="border-2 m-1 px-2 py-1 rounded border-zinc border-bold" placeholder={placeholder} type={type || "text"} />
     </>
 }

@@ -21,6 +21,7 @@ const LangingPage = () => {
                             </div>
                         </Link>
                     </div>
+                    
                     <div className="hidden justify-self-end md:block h[60%] w-[60%]">
                         <img src="https://miro.medium.com/v2/format:webp/4*SdjkdS98aKH76I8eD0_qjw.png" alt="Image" />
                     </div>

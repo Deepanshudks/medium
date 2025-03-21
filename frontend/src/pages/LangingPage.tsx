@@ -3,11 +3,12 @@ import HomeNav from "../components/HomeNav"
 
 const LangingPage = () => {
   return (
+    <>
     <div className="bg-orange-50">
         <HomeNav/>
         <div className="grid pt-8 md:grid-cols-2 gap-2 grid-flow-row-dense	">
-            <div className="flex flex-col  justify-center h-screen">
-                <div className="text-5xl lg:text-8xl md:text-7xl text-slate-800 font-serif mb-2 m-10">
+            <div className="flex flex-col  justify-center h-[85vh]">
+                <div className="text-5xl  lg:text-8xl md:text-7xl text-slate-800 font-serif mb-2 m-10">
                 Human
                 stories & ideas
                 </div>
@@ -25,6 +26,8 @@ const LangingPage = () => {
             </div>
         </div>
     </div>
+</>
+
   )
 }
 
